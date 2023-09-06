@@ -1,7 +1,7 @@
 # Layer-wise loss
 
 ## Intuition
-Train each layer/block of layers independently
+Train each layer/block of layers independently. This may push each layer to become the last one 
 
 ## Experiment notes
 
@@ -25,7 +25,13 @@ Each loss is for the corresponding layer training. All other layers weights are 
 1. Best loss value is selected as a head - other top layers are removed
 2. Full network is finetuned until ready
 
+### Testing configurations 
+1. Different N(mu, sigma) for temporary weights
+2. Aggregate losses 
+3. Without any additional losses
+4. Different resulting layer selections
 
+***
 ## Example:
 ***for binary classification***
 
@@ -36,3 +42,7 @@ Details:
 2. All other weights(K_j: j!=i) are fixed at that moment.
 3. Temporary weights W_i in R^(K_i * 1) are all ones
 and not trained during backprop.
+
+
+### TODO
+1. Add public tensorboard link
