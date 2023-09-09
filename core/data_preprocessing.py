@@ -33,7 +33,8 @@ def flatten_input(image: tf.Tensor, label: tf.Tensor) -> tp.Tuple[tf.Tensor, tf.
 def get_train_test() -> tp.Tuple[tf.data.Dataset, tf.data.Dataset]:
     train_ds, test_ds = get_mnist_data()
     train_ds, test_ds = train_ds.map(normalize), test_ds.map(normalize)
-    train_ds, test_ds = train_ds.map(encode_one_hot), test_ds.map(encode_one_hot)
+    # will use SparseCategoricalCrossEntropy instead
+    # train_ds, test_ds = train_ds.map(encode_one_hot), test_ds.map(encode_one_hot)
     train_ds, test_ds = train_ds.map(flatten_input), test_ds.map(flatten_input)
     return train_ds, test_ds
 
