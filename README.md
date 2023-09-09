@@ -30,6 +30,9 @@ Each loss is for the corresponding layer training. All other layers weights are 
 2. Aggregate losses 
 3. Without any additional losses
 4. Different resulting layer selections
+5. Train iteratively one layer by one. 
+Each layer is trained with regard to quantity of information left.
+Next layer is taken for training when the previous one stoped improving in loss.
 
 ***
 ## Example:
